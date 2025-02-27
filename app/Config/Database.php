@@ -24,31 +24,26 @@ class Database extends Config
      *
      * @var array<string, mixed>
      */
-    public array $default = [
+    public $default = [
         'DSN' => '',
-        'hostname' => 'localhost',
-        'username' => '',
-        'password' => '',
-        'database' => '',
-        'DBDriver' => 'MySQLi',
+        'hostname' => getenv('DATABASE_HOST'),
+        'username' => getenv('DATABASE_USER'),
+        'password' => getenv('DATABASE_PASS'),
+        'database' => getenv('DATABASE_NAME'),
+        'DBDriver' => 'MySQLi',  // Use 'Postgre' if you're using PostgreSQL
         'DBPrefix' => '',
         'pConnect' => false,
-        'DBDebug' => true,
-        'charset' => 'utf8mb4',
-        'DBCollat' => 'utf8mb4_general_ci',
+        'DBDebug' => (ENVIRONMENT !== 'production'),
+        'cacheOn' => false,
+        'cacheDir' => '',
+        'charset' => 'utf8',
+        'DBCollat' => 'utf8_general_ci',
         'swapPre' => '',
         'encrypt' => false,
         'compress' => false,
         'strictOn' => false,
         'failover' => [],
-        'port' => 3306,
-        'numberNative' => false,
-        'foundRows' => false,
-        'dateFormat' => [
-            'date' => 'Y-m-d',
-            'datetime' => 'Y-m-d H:i:s',
-            'time' => 'H:i:s',
-        ],
+        'port' => getenv('DATABASE_PORT'),
     ];
 
     //    /**
