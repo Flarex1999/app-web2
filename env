@@ -22,7 +22,7 @@ CI_ENVIRONMENT = production
 
 # app.baseURL = ''
 # If you have trouble with `.`, you could also use `_`.
-app.baseURL = 'https://your-railway-app-url.com'
+app.baseURL = 'https://app-web2-production.up.railway.appm'
 # app.forceGlobalSecureRequests = false
 # app.CSPEnabled = false
 
@@ -30,11 +30,12 @@ app.baseURL = 'https://your-railway-app-url.com'
 # DATABASE
 #--------------------------------------------------------------------
 
-database.default.hostname = localhost
-database.default.database = ci4-complet
-database.default.username = root
-database.default.password = 
+database.default.hostname = ${DATABASE_HOST}
+database.default.database = ${DATABASE_NAME}
+database.default.username = ${DATABASE_USER}
+database.default.password = ${DATABASE_PASS}
 database.default.DBDriver = MySQLi
+database.default.port = ${DATABASE_PORT}
 
 
 # If you use MySQLi as tests, first update the values of Config\Database::$tests.
